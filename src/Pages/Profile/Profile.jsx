@@ -5,10 +5,9 @@ import { PiGreaterThan, PiLessThan } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import UseAuth from "../../Hooks/UseAuth";
 import UseAxiosPublic from "../../Hooks/useAxiosPublic";
-import Loading from "../../Component/Loading";
 
 const Profile = () => {
-  const { user } = UseAuth();
+  const { user} = UseAuth();
   const axiosPublic = UseAxiosPublic();
   const [userData, setUserData] = useState([]);
   const email = user?.email;
@@ -23,9 +22,9 @@ const Profile = () => {
     };
 
     fetchUserData();
-  }, [axiosPublic,email]);
+  }, [axiosPublic, email]);
   console.log(userData);
- 
+
   return (
     <div className="w-full min-h-screen flex items-center justify-center flex-col gap-5">
       <title>Create Account || popX</title>
@@ -36,7 +35,7 @@ const Profile = () => {
             Account Settings
           </p>
         </div>
-     
+
         <div className="px-5 mt-6">
           {/* top */}
           <div className="flex gap-6 items-center">
@@ -44,7 +43,10 @@ const Profile = () => {
             <div className="w-20 h-20 rounded-full relative">
               <img
                 className="w-full h-full object-cover rounded-full"
-                src={userData[0]?.photo || "https://img.icons8.com/?size=50&id=nSR7D8Yb2tjC&format=gif"}
+                src={
+                  userData[0]?.photo ||
+                  "https://img.icons8.com/?size=50&id=nSR7D8Yb2tjC&format=gif"
+                }
                 alt=""
               />
               <div className="bg-primary text-white absolute p-1 rounded-full right-0 bottom-[2px]">
@@ -53,9 +55,11 @@ const Profile = () => {
             </div>
             {/* name & email */}
             <div>
-              <h3 className="text-2xl font-bold  text-color-text">{userData[0]?.name}</h3>
+              <h3 className="text-2xl font-bold  text-color-text">
+                {userData[0]?.name}
+              </h3>
               <p className="text-xl font-medium  text-color-text-opacity opacity-80">
-              {userData[0]?.email}
+                {userData[0]?.email}
               </p>
             </div>
           </div>
