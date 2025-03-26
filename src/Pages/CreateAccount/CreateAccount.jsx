@@ -1,12 +1,92 @@
 import React from "react";
 import { IoMdHome } from "react-icons/io";
 import { PiGreaterThan, PiLessThan } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UseAuth from "../../Hooks/UseAuth";
+import Swal from "sweetalert2";
+import UseAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const CreateAccount = () => {
+  const { user, createUser, setLoading } = UseAuth();
+  const axiosPublic = UseAxiosPublic();
+  const navigate = useNavigate();
+
+  const handleCreateAccount = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const password = e.target.password.value;
+    const phone = e.target.phone.value;
+    const email = e.target.email.value;
+    const company = e.target.company.value;
+    const agency = e.target.agency.value;
+    const userInfo = { name, phone, email, company, agency };
+    // password verification
+    const regexPass = /^.{6,}$/;
+    const regexUpperCase = /[A-Z]/;
+    const regexLowerCase = /[a-z]/;
+    if (!regexPass.test(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password should be at least 6 characters",
+      });
+      return;
+    }
+    if (!regexUpperCase.test(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password should contain at least 1 uppercase letter",
+      });
+      return;
+    }
+    if (!regexLowerCase.test(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password should contain at least 1 lowercase letter",
+      });
+      return;
+    }
+    console.log(userInfo);
+    createUser(email, password)
+      .then(async (result) => {
+        console.log(result.user);
+        // inserting userinfo in mongodb
+        try {
+          const res = await axiosPublic.post("user", userInfo);
+          console.log(res.data);
+          if (res.data.message === "user Exist") {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "You Already have an account. Please login to continue",
+            });
+          }
+          if (res.data.insertedId) {
+            Swal.fire({
+              title: "Good job!",
+              text: "Account created Successfully",
+              icon: "success",
+            });
+            setLoading(false);
+            navigate("/profile");
+          }
+        } catch (err) {
+          console.log(err.message);
+        }
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.message}`,
+        });
+      });
+  };
   return (
     <div className="w-full min-h-screen flex items-center justify-center flex-col gap-5">
-        <title>Create Account || popX</title>
+      <title>Create Account || popX</title>
       <div className="mobile-mockup bg-background min-h-[820px] border border-color-text-opacity border-opacity-10 px-5 py-6 flex flex-col justify-start">
         {/* content */}
         <h2 className="text-4xl font-bold mb-4 text-color-text">
@@ -17,7 +97,7 @@ const CreateAccount = () => {
           Lorem ipsum dolor sit amet <br /> consectetur adipisicing elit.
         </p>
 
-        <form action="" className="flex flex-col gap-5">
+        <form onSubmit={handleCreateAccount} className="flex flex-col gap-5">
           {/* Name */}
           <div className="relative w-full">
             <label className="absolute left-3 -top-2 bg-white px-1 text-sm text-primary">

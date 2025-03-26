@@ -3,11 +3,14 @@ import { FaGreaterThan, FaLessThan } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
 import { PiGreaterThan, PiLessThan } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import UseAuth from "../../Hooks/UseAuth";
 
 const LandingScreen = () => {
+  const { user } = UseAuth();
+  console.log(user);
   return (
     <div className="w-full  flex items-center justify-center flex-col gap-5 min-h-screen">
-         <title>Home || popX</title>
+      <title>Home || popX</title>
       <div className="mobile-mockup bg-background min-h-[820px] border border-color-text-opacity border-opacity-10 px-5 py-6 flex flex-col justify-end">
         {/* content */}
         <h2 className="text-3xl font-bold mb-1 text-color-text">
@@ -30,7 +33,6 @@ const LandingScreen = () => {
       <div className="flex gap-4">
         <div className="text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
           <Link to={"/"}>
-            
             <IoMdHome size={25} />
           </Link>
         </div>
