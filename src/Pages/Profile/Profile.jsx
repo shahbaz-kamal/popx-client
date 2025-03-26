@@ -2,15 +2,19 @@ import React, { useEffect, useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
 import { PiGreaterThan, PiLessThan } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../../Hooks/UseAuth";
 import UseAxiosPublic from "../../Hooks/useAxiosPublic";
+import { GrLogout } from "react-icons/gr";
+import Swal from "sweetalert2";
 
 const Profile = () => {
-  const { user} = UseAuth();
+  const { user, logOutUser } = UseAuth();
   const axiosPublic = UseAxiosPublic();
   const [userData, setUserData] = useState([]);
   const email = user?.email;
+  const navigate = useNavigate();
+  // fetching user data
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -24,16 +28,44 @@ const Profile = () => {
     fetchUserData();
   }, [axiosPublic, email]);
   console.log(userData);
-
+  // handling logout functionality
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {
+        Swal.fire({
+          title: "Good job!",
+          text: "Log out successfull",
+          icon: "success",
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.message}`,
+        });
+      });
+  };
+  // handling previous button functonalityy
+  const handlePrev = () => {
+    navigate("/create-account");
+  };
   return (
     <div className="w-full min-h-screen flex items-center justify-center flex-col gap-5">
       <title>Create Account || popX</title>
       <div className="mobile-mockup bg-background min-h-[820px] border border-color-text-opacity border-opacity-10   flex flex-col justify-start">
         {/* content */}
-        <div className="bg-white w-full">
+        <div className="bg-white w-full flex justify-between items-center">
           <p className=" text-xl font-medium py-5 px-5 opacity-80">
             Account Settings
           </p>
+          <div
+            onClick={handleLogOut}
+            className="py-5 mx-5  rounded-full text-red-500"
+          >
+            <GrLogout />
+          </div>
         </div>
 
         <div className="px-5 mt-6">
@@ -80,11 +112,11 @@ const Profile = () => {
             <IoMdHome size={25} />
           </Link>
         </div>
-        <div className="text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
+        <div  onClick={handlePrev} className="hover:cursor-pointer text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
           <PiLessThan size={25} />
         </div>
         <div className="text-gray-500 ">
-          <p>3 of 4</p>
+          <p>4 of 4</p>
         </div>
         <div className="text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
           <PiGreaterThan size={25} />

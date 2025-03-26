@@ -2,12 +2,16 @@ import React from "react";
 import { FaGreaterThan, FaLessThan } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
 import { PiGreaterThan, PiLessThan } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../../Hooks/UseAuth";
 
 const LandingScreen = () => {
+  const navigate = useNavigate();
   const { user } = UseAuth();
   console.log(user);
+  const handleNextPage = () => {
+    navigate("/signin");
+  };
   return (
     <div className="w-full  flex items-center justify-center flex-col gap-5 min-h-screen">
       <title>Home || popX</title>
@@ -42,7 +46,10 @@ const LandingScreen = () => {
         <div className="text-gray-500 ">
           <p>1 of 4</p>
         </div>
-        <div className="text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
+        <div
+          onClick={handleNextPage}
+          className="hover:cursor-pointer text-gray-500 hover:text-gray-700 transition ease-in-out duration-300"
+        >
           <PiGreaterThan size={25} />
         </div>
       </div>

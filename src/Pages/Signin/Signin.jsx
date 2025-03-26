@@ -7,7 +7,16 @@ import Swal from "sweetalert2";
 
 const SignIn = () => {
   const { signInUser, setLoading } = UseAuth();
+
   const navigate = useNavigate();
+  // handling next & previous button
+  const handleNext = () => {
+    navigate("/create-account");
+  };
+  const handlePrev = () => {
+    navigate("/");
+  };
+  // handling sign in functionality
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -28,6 +37,7 @@ const SignIn = () => {
           title: "Oops...",
           text: `${error.message}`,
         });
+        setLoading(false);
       });
   };
   return (
@@ -85,13 +95,13 @@ const SignIn = () => {
             <IoMdHome size={25} />
           </Link>
         </div>
-        <div className="text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
+        <div onClick={handlePrev} className="hover:cursor-pointer text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
           <PiLessThan size={25} />
         </div>
         <div className="text-gray-500 ">
           <p>2 of 4</p>
         </div>
-        <div className="text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
+        <div onClick={handleNext} className="hover:cursor-pointer text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
           <PiGreaterThan size={25} />
         </div>
       </div>

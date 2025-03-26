@@ -10,6 +10,22 @@ const CreateAccount = () => {
   const { user, createUser, setLoading } = UseAuth();
   const axiosPublic = UseAxiosPublic();
   const navigate = useNavigate();
+  // handling next & prevoius button
+  const handleNext = () => {
+    if (user && user?.email) {
+      navigate("/profile");
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You can' view profile unless you are logged in",
+      });
+      navigate("/");
+    }
+  };
+  const handlePrev = () => {
+    navigate("/signin");
+  };
 
   const handleCreateAccount = (e) => {
     e.preventDefault();
@@ -20,7 +36,7 @@ const CreateAccount = () => {
     const company = e.target.company.value;
     const isAgency = e.target.agency.value;
     const photo = e.target.photo.value;
-    const userInfo = { name, phone, email, company, isAgency,photo };
+    const userInfo = { name, phone, email, company, isAgency, photo };
     // password verification
     const regexPass = /^.{6,}$/;
     const regexUpperCase = /[A-Z]/;
@@ -157,11 +173,10 @@ const CreateAccount = () => {
           <div>
             <div className="relative w-full">
               <label className="absolute left-3 -top-2 bg-white px-1 text-sm text-primary">
-                Photo URL <span className="text-red-500">*</span>
+                Photo URL
               </label>
               <input
                 name="photo"
-                required
                 type="url"
                 placeholder="Enter Photo URL"
                 className="w-full border border-color-text-opacity border-opacity-30 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary"
@@ -223,13 +238,19 @@ const CreateAccount = () => {
             <IoMdHome size={25} />
           </Link>
         </div>
-        <div className="text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
+        <div
+          onClick={handlePrev}
+          className="hover:cursor-pointer text-gray-500 hover:text-gray-700 transition ease-in-out duration-300"
+        >
           <PiLessThan size={25} />
         </div>
         <div className="text-gray-500 ">
           <p>3 of 4</p>
         </div>
-        <div className="text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
+        <div
+          onClick={handleNext}
+          className="hover:cursor-pointer text-gray-500 hover:text-gray-700 transition ease-in-out duration-300"
+        >
           <PiGreaterThan size={25} />
         </div>
       </div>
