@@ -146,7 +146,7 @@ const CreateAccount = () => {
           <PiLessThan size={25} />
         </div>
         <div className="text-gray-500 ">
-          <p>2 of 4</p>
+          <p>3 of 4</p>
         </div>
         <div className="text-gray-500 hover:text-gray-700 transition ease-in-out duration-300">
           <PiGreaterThan size={25} />
