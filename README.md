@@ -1,14 +1,14 @@
 <div align="center">
-  <img height="400" src="https://i.ibb.co.com/k3nDpmh/git-Hub-banner.jpg"  />
+  <img height="400" src="https://github.com/shahbaz-kamal/popx-client/blob/main/src/assets/git_banner.png"  />
 </div>
 
 ###
 
-<h1 align="left">71 Digital Sign - Employee Management System 👨‍💼</h1>
+<h1 align="left">popX Website</h1>
 
 ###
 
-<p align="left">71 Digital Sign is a robust Employee Management System designed to help a well-renowned company monitor employee workload, manage payroll, verify employee contracts, and ensure smooth HR operations. This web-based application facilitates role-based authentication and provides a dynamic dashboard for employees, HR executives, and administrators.</p>
+<p align="left">PopX is a simple account management platform where users can create an account, log in, and register using Firebase authentication. It enforces password security with rules requiring a minimum of 6 characters, one uppercase, and one lowercase letter. The platform includes a private profile page that is only accessible to logged-in users; anyone trying to access the profile page without being logged in will be redirected to the homepage. On the profile page, users can view their name, email, and profile photo (if uploaded). Built with React and Firebase, PopX ensures a secure and seamless user experience.</p>
 
 ###
 
@@ -18,13 +18,10 @@
 
 ###
 
-<p align="left">https://71-digital-sign.netlify.app/</p>
+<p align="left">https://popx-website-by-shahbaz.netlify.app/</p>
 
 ###
-## 👨‍💼 Admin Info
-###
-<p align="left">Admin Email: shahbaz@kamal.com</p>
-<p align="left">Admin Password: 123456Aa</p>
+
 
 
 
@@ -32,48 +29,22 @@
 
 ###
 
-1. **Responsive Design**
+1. **User Authentication**
 
-   - Fully responsive layout built with Tailwind CSS, ensuring a seamless experience on mobile, tablet, and desktop devices.
+   - Secure registration and login with Firebase Authentication.
 
-2. **User Authentication**
+2. **Password Security**
 
-   - Secure login and registration using Firebase Authentication with Google Sign-in for quick access.
-   - Conditional navigation based on the user's login state, displaying user information or authentication options.
+   - Passwords must be at least 6 characters long and contain at least 1 uppercase and 1 lowercase letter.
 
-3. **Role-Based Access Control**
+3. **Private Profile Page**
 
-   - Users can register as Employees or HRs via email/password authentication.
-   - Private routes ensure data privacy and secure access.
+   - The profile page is protected and can only be accessed by logged-in users. Non-logged-in users are redirected to the homepage if they try to access the profile URL directly.
+4. **Profile Information**
 
-4. **Employee Work Record Management**
+   - On the profile page, users can view their name, email, and profile photo (if uploaded during account creation).
 
-   - Employees can submit daily work tasks (task type, hours worked, date) through a form. These records are displayed in a table with options to edit or delete.
 
-5. **Salary Payment History**
-
-   - Employees can view their salary payment history, with details like month, amount, and transaction ID. HR can add, update, and track payment status.
-
-6. **HR Management Interface**
-
-   - HR can view employee data, verify employee status, and make salary payments. They can also filter work records by employee name or month/year.
-
-7. **Admin Dashboard**
-
-   - Admin can manage all employees, make employees HRs, and fire employees. Admin has full access to view employee details, approve payments, and adjust salaries.
-
-8. **Employee Details & Progress Tracking**
-
-   - HR can view employee profiles, including personal info, photo, and work records. A bar chart shows salary vs. month/year for each employee.
-
-9. **CRUD Operations with Notifications**
-
-   - All operations (add, edit, delete) are handled via forms and tables, with sweet alert/toast notifications for success or failure feedback.
-
-10. **Role-specific Route Protection**
-    - The app uses JWT tokens for secure authentication, ensuring that only users with the correct role (Employee, HR, Admin) can access their respective routes and functionalities.
-11. **Payment Gateway Integration**
-    - Admin can make salary payments to employees via a payment gateway(stripe). Payments can only be made once per month/year to avoid double payments.
 
 ###
 
@@ -96,7 +67,7 @@
      <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" height="40" alt="mongodb logo"  />
   <img width="12" />
-    <img src="https://avatars.githubusercontent.com/u/856813?s=200&v=4" height="40" alt="stripe logo logo"  />
+   
 </div>
 
 
