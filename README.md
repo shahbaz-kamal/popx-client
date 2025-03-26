@@ -110,7 +110,7 @@
 1. First clone the project by running
 
 ```bash
-  git clone https://github.com/shahbaz-kamal/71-digital-sign-client.git
+  git clone https://github.com/shahbaz-kamal/popx-client.git
 ```
 
 2. Change your directory to the cloned folder by
@@ -134,8 +134,7 @@ VITE_projectId=your_project_id
 VITE_storageBucket=your_storage_bucket
 VITE_messagingSenderId=your_messagingSenderId
 VITE_appId=your_api_id
-VITE_IMAGE_HOSTING_KEY=your_image_hosting_ke
-VITE_STRIPE_PUBLIC_KEY=your_stripe_key
+
 ```
 
 5. Run the following command and open the website locally on port 5173:
@@ -154,7 +153,7 @@ npm run dev
 1. First clone the project by running
 
 ```bash
-  git clone https://github.com/shahbaz-kamal/71-digital-sign-server.git
+  git clone https://github.com/shahbaz-kamal/popx-server.git
 ```
 
 2. Change your directory to the cloned folder by
@@ -175,8 +174,7 @@ npm install
 ```bash
 DB_USER=your_mongodb_username
 DB_PASS=your_mongodb_Password
-ACCESS_TOKEN_SECRET=token_secret_for_jwt_token
-PAYMENT_SECRET_KEY=stripe_secret_key
+
 ```
 
 6. Put the following code instead of <db_username>:
