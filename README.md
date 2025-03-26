@@ -21,6 +21,15 @@
 <p align="left">https://popx-website-by-shahbaz.netlify.app/</p>
 
 ###
+## 🔗 Git Server
+
+
+
+###
+
+<p align="left">https://github.com/shahbaz-kamal/popx-server</p>
+
+###
 
 
 
@@ -52,6 +61,7 @@
 
 ###
 
+<!-- end -->
  <div align="left">
   <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" height="40" alt="tailwindcss logo"  />
   <img width="12" />
@@ -80,9 +90,13 @@
 
 ###
 
-<h3 align="left">"@stripe/react-stripe-js": "^3.1.1",<br>    "@stripe/stripe-js": "^5.5.0",<br>    "@tanstack/react-query": "^5.64.2",<br>    "@tanstack/react-table": "^8.20.6",<br>    "aos": "^2.3.4",<br>    "axios": "^1.7.9",<br>    "date-fns": "^4.1.0",<br>    "firebase": "^11.2.0",<br>    "framer-motion": "^12.0.1",<br>    "localforage": "^1.10.0",<br>    "lottie-react": "^2.4.1",<br>    "match-sorter": "^8.0.0",<br>    "react": "^18.3.1",<br>    "react-datepicker": "^7.6.0",<br>    "react-dom": "^18.3.1",<br>    "react-helmet": "^6.1.0",<br>    "react-helmet-async": "^2.0.5",<br>    "react-icons": "^5.4.0",<br>    "react-rating-stars-component": "^2.2.0",<br>    "react-router-dom": "^7.1.3",<br>    "react-tooltip": "^5.28.0",<br>    "recharts": "^2.15.0",<br>    "sort-by": "^1.2.0",<br>    "sweetalert2": "^11.15.10",<br>    "swiper": "^11.2.1"</h3>
+<!-- start -->
+<p align="left">"axios": "^1.8.4",<br>    "firebase": "^11.5.0",<br>    "localforage": "^1.10.0",<br>    "match-sorter": "^8.0.0",<br>    "react": "^19.0.0",<br>    "react-dom": "^19.0.0",<br>    "react-icons": "^5.5.0",<br>    "react-router-dom": "^7.4.0",<br>    "sort-by": "^1.2.0",<br>    "sweetalert2": "^11.17.2"</p>
 
 ###
+<!-- end -->
+
+
 
 ###
 
