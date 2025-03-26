@@ -1,0 +1,10 @@
+.mobile-mockup {
+    width: 100%;
+  }
+  
+  @media (min-width: 426px) {
+    .mobile-mockup {
+      width: 425px;
+    }
+  }
+  
