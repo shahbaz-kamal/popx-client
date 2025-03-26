@@ -18,8 +18,9 @@ const CreateAccount = () => {
     const phone = e.target.phone.value;
     const email = e.target.email.value;
     const company = e.target.company.value;
-    const agency = e.target.agency.value;
-    const userInfo = { name, phone, email, company, agency };
+    const isAgency = e.target.agency.value;
+    const photo = e.target.photo.value;
+    const userInfo = { name, phone, email, company, isAgency,photo };
     // password verification
     const regexPass = /^.{6,}$/;
     const regexUpperCase = /[A-Z]/;

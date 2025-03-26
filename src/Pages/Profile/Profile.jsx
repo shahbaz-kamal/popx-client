@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
 import { PiGreaterThan, PiLessThan } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import UseAuth from "../../Hooks/UseAuth";
+import UseAxiosPublic from "../../Hooks/useAxiosPublic";
+import Loading from "../../Component/Loading";
 
 const Profile = () => {
+  const { user } = UseAuth();
+  const axiosPublic = UseAxiosPublic();
+  const [userData, setUserData] = useState([]);
+  const email = user?.email;
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const res = await axiosPublic.get(`user/${email}`);
+        setUserData(res.data); // Update state with user data
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [axiosPublic,email]);
+  console.log(userData);
+ 
   return (
     <div className="w-full min-h-screen flex items-center justify-center flex-col gap-5">
       <title>Create Account || popX</title>
@@ -15,13 +36,7 @@ const Profile = () => {
             Account Settings
           </p>
         </div>
-        {/* <h2 className="text-4xl font-bold mb-4 text-color-text">
-          Create your <br />
-          PopX account
-        </h2>
-        <p className="text-2xl text-color-text-opacity mb-6">
-          Lorem ipsum dolor sit amet <br /> consectetur adipisicing elit.
-        </p> */}
+     
         <div className="px-5 mt-6">
           {/* top */}
           <div className="flex gap-6 items-center">
@@ -29,7 +44,7 @@ const Profile = () => {
             <div className="w-20 h-20 rounded-full relative">
               <img
                 className="w-full h-full object-cover rounded-full"
-                src="https://i.ibb.co.com/6c60Yv8D/shahbaz-small.png"
+                src={userData[0]?.photo || "https://img.icons8.com/?size=50&id=nSR7D8Yb2tjC&format=gif"}
                 alt=""
               />
               <div className="bg-primary text-white absolute p-1 rounded-full right-0 bottom-[2px]">
@@ -38,9 +53,9 @@ const Profile = () => {
             </div>
             {/* name & email */}
             <div>
-              <h3 className="text-2xl font-bold  text-color-text">Marry Doe</h3>
+              <h3 className="text-2xl font-bold  text-color-text">{userData[0]?.name}</h3>
               <p className="text-xl font-medium  text-color-text-opacity opacity-80">
-                marry@gmail.com
+              {userData[0]?.email}
               </p>
             </div>
           </div>
