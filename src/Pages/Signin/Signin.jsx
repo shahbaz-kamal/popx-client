@@ -7,7 +7,7 @@ const SignIn = () => {
   return (
     <div className="w-full min-h-screen flex items-center justify-center flex-col gap-5">
          <title>Sign In || popX</title>
-      <div className="mobile-mockup bg-background min-h-[900px] border border-color-text-opacity border-opacity-10 px-5 py-6 flex flex-col justify-start">
+      <div className="mobile-mockup bg-background min-h-[820px] border border-color-text-opacity border-opacity-10 px-5 py-6 flex flex-col justify-start">
         {/* content */}
         <h2 className="text-4xl font-bold mb-4 text-color-text">
           Signin to your <br />

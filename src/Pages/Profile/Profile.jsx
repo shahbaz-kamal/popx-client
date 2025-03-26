@@ -8,7 +8,7 @@ const Profile = () => {
   return (
     <div className="w-full min-h-screen flex items-center justify-center flex-col gap-5">
       <title>Create Account || popX</title>
-      <div className="mobile-mockup bg-background min-h-[900px] border border-color-text-opacity border-opacity-10   flex flex-col justify-start">
+      <div className="mobile-mockup bg-background min-h-[820px] border border-color-text-opacity border-opacity-10   flex flex-col justify-start">
         {/* content */}
         <div className="bg-white w-full">
           <p className=" text-xl font-medium py-5 px-5 opacity-80">

@@ -8,7 +8,7 @@ const LandingScreen = () => {
   return (
     <div className="w-full  flex items-center justify-center flex-col gap-5 min-h-screen">
          <title>Home || popX</title>
-      <div className="mobile-mockup bg-background min-h-[900px] border border-color-text-opacity border-opacity-10 px-5 py-6 flex flex-col justify-end">
+      <div className="mobile-mockup bg-background min-h-[820px] border border-color-text-opacity border-opacity-10 px-5 py-6 flex flex-col justify-end">
         {/* content */}
         <h2 className="text-3xl font-bold mb-1 text-color-text">
           Welcome to PopX
